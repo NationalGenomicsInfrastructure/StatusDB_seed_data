@@ -1,0 +1,30 @@
+{
+  "name": "StatusDB Seed Development",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "workspace",
+  "workspaceFolder": "/workspace",
+  
+  "forwardPorts": [5984],
+  "portsAttributes": {
+    "5984": {
+      "label": "CouchDB",
+      "onAutoForward": "notify"
+    }
+  },
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "redhat.vscode-yaml",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  
+  "postCreateCommand": "echo 'CouchDB is available at http://localhost:5984' && echo 'Fauxton UI: http://localhost:5984/_utils' && echo 'Admin credentials: admin/secret'",
+  
+  "remoteUser": "vscode"
+}

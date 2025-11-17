@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  couchdb:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=secret
+    volumes:
+      - couchdb-data:/opt/couchdb/data
+      - ../seed:/opt/couchdb/seed:ro
+    ports:
+      - "5984:5984"
+    networks:
+      - statusdb-network
+
+  workspace:
+    image: mcr.microsoft.com/devcontainers/base:ubuntu
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    networks:
+      - statusdb-network
+    depends_on:
+      - couchdb
+
+volumes:
+  couchdb-data:
+
+networks:
+  statusdb-network:
