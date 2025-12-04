@@ -1,0 +1,45 @@
+{
+  "_id": "project_001",
+  "type": "project",
+  "name": "Example Genomics Project",
+  "project_id": "P12345",
+  "application": "Whole Genome Sequencing",
+  "status": "ongoing",
+  "created": "2025-11-14T10:00:00Z",
+  "updated": "2025-11-14T10:00:00Z",
+  "contact": {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "affiliation": "Example University"
+  },
+  "samples": [
+    {
+      "sample_id": "S001",
+      "sample_name": "Sample_A",
+      "organism": "Homo sapiens",
+      "tissue": "blood",
+      "collection_date": "2025-10-01"
+    },
+    {
+      "sample_id": "S002",
+      "sample_name": "Sample_B",
+      "organism": "Homo sapiens",
+      "tissue": "tissue",
+      "collection_date": "2025-10-02"
+    }
+  ],
+  "sequencing_runs": [
+    {
+      "run_id": "RUN001",
+      "instrument": "NovaSeq 6000",
+      "date": "2025-11-01",
+      "lanes": 2,
+      "read_length": "2x150"
+    }
+  ],
+  "metadata": {
+    "budget_code": "GRANT-2025-001",
+    "priority": "normal",
+    "notes": "Initial test data for StatusDB development"
+  }
+}
