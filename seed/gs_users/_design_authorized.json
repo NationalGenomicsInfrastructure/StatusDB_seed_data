@@ -3,6 +3,9 @@
   "views": {
     "users": {
       "map": "function(doc) { if (doc.email) { emit(doc.email, doc); } }"
+    },
+    "info": {
+      "map": "function(doc) { if (doc.email) { emit(doc.email, {name: doc.name, initials: doc.initials, roles: doc.roles, teams: doc.teams}); } }"
     }
   }
 }

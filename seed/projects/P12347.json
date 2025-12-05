@@ -1,0 +1,18 @@
+{
+  "_id": "P12347",
+  "project_id": "P12347",
+  "project_name": "Single Cell Analysis",
+  "application": "10X Genomics",
+  "status": "closed",
+  "open_date": "2025-06-01",
+  "queued": "2025-06-05",
+  "close_date": "2025-11-10",
+  "details": {
+    "type": "Production",
+    "sample_type": "Single cells",
+    "queued": "2025-06-05"
+  },
+  "sequencing_platform": "NovaSeq 6000",
+  "library_construction_method": "10X Chromium",
+  "summary_dates": {}
+}

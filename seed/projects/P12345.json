@@ -1,0 +1,17 @@
+{
+  "_id": "P12345",
+  "project_id": "P12345",
+  "project_name": "Test RNA-seq Project",
+  "application": "RNA-seq",
+  "status": "ongoing",
+  "open_date": "2025-11-15",
+  "queued": "2025-11-20",
+  "details": {
+    "type": "Production",
+    "sample_type": "Total RNA",
+    "queued": "2025-11-20"
+  },
+  "sequencing_platform": "NovaSeq 6000",
+  "library_construction_method": "TruSeq Stranded mRNA",
+  "summary_dates": {}
+}

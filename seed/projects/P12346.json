@@ -1,0 +1,15 @@
+{
+  "_id": "P12346",
+  "project_id": "P12346",
+  "project_name": "Whole Genome Sequencing Study",
+  "application": "WGS",
+  "status": "reception control",
+  "open_date": "2025-12-01",
+  "details": {
+    "type": "Production",
+    "sample_type": "Genomic DNA"
+  },
+  "sequencing_platform": "NovaSeq X",
+  "library_construction_method": "PCR-free",
+  "summary_dates": {}
+}

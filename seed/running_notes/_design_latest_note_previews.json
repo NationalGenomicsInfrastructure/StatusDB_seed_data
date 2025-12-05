@@ -1,0 +1,9 @@
+{
+  "_id": "_design/latest_note_previews",
+  "views": {
+    "project": {
+      "map": "function(doc) { if (doc.project_id && doc.created_at_utc) { emit(doc.project_id, {created_at_utc: doc.created_at_utc, note: doc.note}); } }",
+      "reduce": "_stats"
+    }
+  }
+}
