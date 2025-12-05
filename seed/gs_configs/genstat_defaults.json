@@ -53,12 +53,13 @@
   "pv_presets": {
     "All Projects": {
       "ICON": {"glyphicon": "fa-list"},
-      "COLUMNS": ["project_id", "project_name", "application", "status", "open_date"],
+      "BASIC_COLUMNS": {"project_id": true, "project_name": true, "application": true, "status": true},
+      "SETUP_PROJECT_COLUMNS": {"open_date": true},
       "STATUS": ["ongoing", "reception control", "pending"]
     },
     "Ongoing": {
       "ICON": {"glyphicon": "fa-spinner"},
-      "COLUMNS": ["project_id", "project_name", "application", "status"],
+      "BASIC_COLUMNS": {"project_id": true, "project_name": true, "application": true, "status": true},
       "STATUS": ["ongoing"]
     }
   }
