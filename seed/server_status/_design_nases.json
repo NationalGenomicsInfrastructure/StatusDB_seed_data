@@ -1,0 +1,8 @@
+{
+  "_id": "_design/nases",
+  "views": {
+    "by_timestamp": {
+      "map": "function(doc) { if (doc.timestamp) { emit(doc.timestamp, doc); } }"
+    }
+  }
+}

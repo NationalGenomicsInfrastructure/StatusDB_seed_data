@@ -1,10 +1,6 @@
-version: '3.8'
-
 services:
   couchdb:
-    build:
-      context: ..
-      dockerfile: Dockerfile
+    image: couchdb:3.1.1
     environment:
       - COUCHDB_USER=admin
       - COUCHDB_PASSWORD=secret

@@ -1,0 +1,8 @@
+{
+  "_id": "_design/project",
+  "views": {
+    "summary_status": {
+      "map": "function(doc) { if (doc.status) { emit([doc.status, doc.project_id], doc); } }"
+    }
+  }
+}

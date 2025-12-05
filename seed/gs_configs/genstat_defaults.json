@@ -1,0 +1,66 @@
+{
+  "_id": "genstat_defaults",
+  "roles": {
+    "admin": "Administrator",
+    "pricing_admin": "Pricing Administrator",
+    "sample_requirements_admin": "Sample Requirements Admin",
+    "proj_coord": "Project Coordinator",
+    "api_user": "API User"
+  },
+  "pv_columns": {
+    "BASIC_COLUMNS": {
+      "Project ID": "project_id",
+      "Project Name": "project_name",
+      "Application": "application",
+      "Status": "status"
+    },
+    "SETUP_PROJECT_COLUMNS": {
+      "Open Date": "open_date",
+      "Queue Date": "queued",
+      "Close Date": "close_date"
+    },
+    "BIOINFO_COLUMNS": {
+      "Bioinfo Responsible": "bioinfo_responsible"
+    },
+    "SEQUENCING_COLUMNS": {
+      "Sequencing Platform": "sequencing_platform"
+    },
+    "ACCREDITATION_COLUMNS": {
+      "Accredited": "accredited"
+    },
+    "DETAILS_COLUMNS": {
+      "Project Type": "type",
+      "Sample Type": "sample_type"
+    },
+    "LIBRARY_PREP_COLUMNS": {
+      "Library Prep": "library_construction_method"
+    },
+    "EXTRA_COLUMNS": {}
+  },
+  "sample_columns": {
+    "BASIC_COLUMNS": {
+      "Sample ID": "sample_id",
+      "Sample Name": "sample_name"
+    },
+    "DETAILS_COLUMNS": {
+      "Organism": "organism",
+      "Tissue": "tissue"
+    }
+  },
+  "project_summary_presets": {"default": {}},
+  "flowcell_presets": {"default": {}},
+  "workset_presets": {"default": {}},
+  "pv_presets": {
+    "All Projects": {
+      "ICON": {"glyphicon": "fa-list"},
+      "BASIC_COLUMNS": {"project_id": true, "project_name": true, "application": true, "status": true},
+      "SETUP_PROJECT_COLUMNS": {"open_date": true},
+      "STATUS": ["ongoing", "reception control", "pending"]
+    },
+    "Ongoing": {
+      "ICON": {"glyphicon": "fa-spinner"},
+      "BASIC_COLUMNS": {"project_id": true, "project_name": true, "application": true, "status": true},
+      "STATUS": ["ongoing"]
+    }
+  }
+}

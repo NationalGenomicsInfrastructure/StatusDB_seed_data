@@ -1,0 +1,8 @@
+{
+  "_id": "test@example.com",
+  "email": "test@example.com",
+  "name": "Test Admin",
+  "initials": "TA",
+  "roles": ["admin"],
+  "teams": ["bioinformatics"]
+}
