@@ -1,0 +1,8 @@
+{
+  "_id": "_design/authorized",
+  "views": {
+    "users": {
+      "map": "function(doc) { if (doc.email) { emit(doc.email, doc); } }"
+    }
+  }
+}

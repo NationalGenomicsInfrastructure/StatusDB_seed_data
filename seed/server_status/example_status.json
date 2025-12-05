@@ -1,0 +1,8 @@
+{
+  "_id": "status_001",
+  "timestamp": "2025-12-05T09:00:00Z",
+  "name": "dev-nas-01",
+  "status": "ok",
+  "disk_usage": 50,
+  "disk_total": 100
+}

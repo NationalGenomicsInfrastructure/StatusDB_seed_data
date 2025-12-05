@@ -1,0 +1,29 @@
+{
+  "_id": "genstat_defaults",
+  "roles": {
+    "admin": "Administrator",
+    "pricing_admin": "Pricing Administrator",
+    "sample_requirements_admin": "Sample Requirements Admin",
+    "proj_coord": "Project Coordinator",
+    "api_user": "API User"
+  },
+  "pv_columns": [
+    "project_name",
+    "project_id",
+    "application",
+    "status",
+    "created",
+    "updated"
+  ],
+  "sample_columns": [
+    "sample_name",
+    "sample_id",
+    "organism",
+    "tissue",
+    "collection_date"
+  ],
+  "project_summary_presets": {"default": {}},
+  "flowcell_presets": {"default": {}},
+  "workset_presets": {"default": {}},
+  "default": {}
+}
