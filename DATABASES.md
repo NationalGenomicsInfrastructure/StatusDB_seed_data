@@ -22,6 +22,49 @@ Summary statistics from various analysis, likely updated from `Piper` or similar
 
 ---
 
+## `application_categories`
+
+Listing our application categories and abrevation, with one document per application. Used by the statistics api of genstat which in turn feeds the dashboard.
+
+---
+
+## `bioinfo_analysis`
+
+Listing status flags for bioinfo tab on Genomics Status. One document per sample-flowcell-lane combination, which gets problematic when setting a status on flowcell level when there is a lot of samples on many lanes.
+Documents are created by ngi-pipeline or TACA and statuses can be set from Genomics Status UI.
+
+---
+
+## `biomek_logs`
+
+Short log messages from the biomek runs.
+
+---
+
+## `charon`
+
+Huge database tracking sample status on the bioinfo side. Database for the Charon web application which has up to 2025 also been used by the Uppsala node of NGI. Lots of different types of documents with different content and structure.
+
+---
+
+## `cost_calculator`
+
+Storing the prices for our different offerings. One document per version of the cost calculator. Updated from Genomics Status and used by Genomics Status to display cost and generate agreements.
+
+---
+
+## `cronjobs`
+
+Storing the output of `crontab -l` for different users and servers, updated by TACA in a cronjob, and displayed on Genomics Status. One document per server, with different users appended to the document.
+
+---
+
+## `element_runs`
+
+Flowcells database for the Element Bioisciences sequencing instrument. Created by TACA and displayed on Genomics Status.
+
+---
+
 ## `gs_configs`
 
 Miscelaneous config files used for genomics status.
