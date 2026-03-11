@@ -1,6 +1,8 @@
 services:
   couchdb:
-    image: couchdb:3.1.1
+    build:
+      context: ..
+      dockerfile: Dockerfile
     environment:
       - COUCHDB_USER=admin
       - COUCHDB_PASSWORD=secret
@@ -9,6 +11,12 @@ services:
       - ../seed:/opt/couchdb/seed:ro
     ports:
       - "5984:5984"
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:5984/_up"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 15s
     networks:
       - statusdb-network
 
@@ -20,7 +28,8 @@ services:
     networks:
       - statusdb-network
     depends_on:
-      - couchdb
+      couchdb:
+        condition: service_healthy
 
 volumes:
   couchdb-data:
