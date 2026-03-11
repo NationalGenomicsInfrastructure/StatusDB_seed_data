@@ -52,23 +52,24 @@ The easiest way to develop seed data is using the VS Code Dev Container:
 
 ## Seed Data Structure
 
-The `seed/` directory contains JSON documents that are loaded into CouchDB on startup.
+The `seed/data/` directory contains JSON documents that are loaded into CouchDB on startup.
 
 ### Directory Structure
 
 ```
 seed/
-├── <database_name>/     # Creates a database and loads all JSON files into it
-│   ├── doc1.json
-│   └── doc2.json
-└── *.json               # Top-level JSON files are loaded into 'statusdb' database
+└── data/
+    ├── <database_name>/     # Creates a database and loads all JSON files into it
+    │   ├── doc1.json
+    │   └── doc2.json
+    └── *.json               # Top-level JSON files are loaded into 'statusdb' database
 ```
 
 ### Document Format
 
 Each JSON file should contain a single CouchDB document. If the document has an `_id` field, it will be used as the document ID. Otherwise, CouchDB will auto-generate an ID.
 
-Example document (`seed/example_project.json`):
+Example document (`seed/data/example_project.json`):
 
 ```json
 {
@@ -89,7 +90,7 @@ docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=admin statusdb
 
 ## Adding New Seed Data
 
-1. Add JSON files to the `seed/` directory (or subdirectories for specific databases)
+1. Add JSON files to the `seed/data/` directory (or subdirectories for specific databases)
 2. Commit and push to `main` branch
 3. GitHub Actions will automatically build and publish a new image
 
