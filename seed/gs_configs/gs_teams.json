@@ -1,0 +1,10 @@
+{
+  "_id": "gs_teams",
+  "teams": {
+    "library_prep": "Library Preparation",
+    "sequencing": "Sequencing",
+    "bioinformatics": "Bioinformatics",
+    "project_coordination": "Project Coordination",
+    "applications": "Applications"
+  }
+}

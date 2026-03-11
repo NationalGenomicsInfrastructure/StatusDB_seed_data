@@ -1,0 +1,8 @@
+{
+  "_id": "_design/entire_document",
+  "views": {
+    "by_sensor_id_and_date": {
+      "map": "function(doc) { if (doc.sensor_id && doc.date) { emit([doc.sensor_id, doc.date], doc); } }"
+    }
+  }
+}

@@ -1,20 +1,21 @@
-# Use official CouchDB 3.1.1 image
-FROM couchdb:3.1.1
+FROM couchdb:3.4
 
-# Do not include credentials in the image. Configure admin credentials at runtime
-# via environment variables: COUCHDB_USER and COUCHDB_PASSWORD (or using
-# COUCHDB_USER and COUCHDB_PASSWORD with the image's supported env vars).
+# Install curl for healthchecks and data loading
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-# Create a directory for seeded data (optional mount point)
-VOLUME ["/opt/couchdb/data", "/opt/couchdb/seed"]
+# Copy seed data and initialization scripts
+COPY seed/ /opt/couchdb/seed/
+COPY scripts/ /opt/couchdb/scripts/
 
-# Expose CouchDB default port
-EXPOSE 5984
+# Make scripts executable
+RUN chmod +x /opt/couchdb/scripts/*.sh
 
-# Metadata
-LABEL org.opencontainers.image.title="StatusDB_seed_data-couchdb"
-LABEL org.opencontainers.image.description="CouchDB 3.1.1 image used for seeding StatusDB data. Configure admin credentials at runtime; do not bake secrets into the image."
+# The base image already sets up CouchDB to run
+# We use a custom entrypoint wrapper to initialize data on first boot
+COPY scripts/docker-entrypoint-wrapper.sh /docker-entrypoint-wrapper.sh
+RUN chmod +x /docker-entrypoint-wrapper.sh
 
-# Default command from the official image is fine; we don't override it so
-# the image behaves like the official CouchDB image. This Dockerfile exists
-# mainly to provide a named image in the project and a mount point for seeds.
+ENTRYPOINT ["tini", "--", "/docker-entrypoint-wrapper.sh"]
+CMD ["/opt/couchdb/bin/couchdb"]
