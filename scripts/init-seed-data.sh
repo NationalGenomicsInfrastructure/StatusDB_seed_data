@@ -6,7 +6,7 @@ COUCHDB_HOST="${COUCHDB_HOST:-localhost}"
 COUCHDB_PORT="${COUCHDB_PORT:-5984}"
 COUCHDB_USER="${COUCHDB_USER:-admin}"
 COUCHDB_PASSWORD="${COUCHDB_PASSWORD:-admin}"
-SEED_DIR="${SEED_DIR:-/opt/couchdb/seed/data}"
+SEED_DIR="${SEED_DIR:-/opt/couchdb/seed_data}"
 INIT_MARKER="/opt/couchdb/data/.seed_initialized"
 
 COUCHDB_URL="http://${COUCHDB_USER}:${COUCHDB_PASSWORD}@${COUCHDB_HOST}:${COUCHDB_PORT}"
