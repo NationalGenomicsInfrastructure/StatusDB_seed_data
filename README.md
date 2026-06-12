@@ -7,7 +7,7 @@ Holds test data to fire up a dev instance of StatusDB (CouchDB).
 A pre-built Docker image with CouchDB and seed data is available:
 
 ```bash
-docker pull ghcr.io/scilifelab/statusdb_seed_data:latest
+docker pull ghcr.io/scilifelab/StatusDB_NGI:latest
 ```
 
 ### Running the Image
@@ -17,7 +17,7 @@ docker run -d \
   -p 5984:5984 \
   -e COUCHDB_USER=admin \
   -e COUCHDB_PASSWORD=admin \
-  ghcr.io/scilifelab/statusdb_seed_data:latest
+  ghcr.io/scilifelab/StatusDB_NGI:latest
 ```
 
 CouchDB will be available at:
@@ -38,7 +38,7 @@ docker run -d \
   -e COUCHDB_USER=admin \
   -e COUCHDB_PASSWORD=admin \
   -v couchdb-data:/opt/couchdb/data \
-  ghcr.io/scilifelab/statusdb_seed_data:latest
+  ghcr.io/scilifelab/StatusDB_NGI:latest
 ```
 
 ## Development Container (VS Code)
@@ -84,8 +84,8 @@ Example document (`seed/data/example_project.json`):
 ## Building the Image Locally
 
 ```bash
-docker build -t statusdb_seed_data .
-docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=admin statusdb_seed_data
+docker build -t StatusDB_NGI .
+docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=admin StatusDB_NGI
 ```
 
 ## Adding New Seed Data
