@@ -36,7 +36,7 @@ databases:
       names:
         views:
           id_to_name:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       process_flow:
@@ -88,7 +88,7 @@ databases:
             scenarios:
             - stage
           project_name:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       reports:
@@ -146,7 +146,7 @@ databases:
             scenarios:
             - stage
           not_ongoing_projectids:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           not_ongoing_runids:
@@ -154,13 +154,13 @@ databases:
             scenarios:
             - stage
           ongoing_projectids:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
       genomics_dashboard:
         views:
           run_lane_sample_status:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       keys:
@@ -228,7 +228,7 @@ databases:
             scenarios:
             - stage
           modified:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       log:
@@ -240,7 +240,7 @@ databases:
       project:
         views:
           modified:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           name:
@@ -286,7 +286,7 @@ databases:
             scenarios:
             - stage
           modified:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           not_done:
@@ -406,11 +406,11 @@ databases:
             scenarios:
             - stage
           status:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           summary:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       names:
@@ -480,7 +480,7 @@ databases:
             scenarios:
             - stage
           storage_status:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           summary:
@@ -494,7 +494,7 @@ databases:
       instr:
         views:
           unmatched:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       instrument:
@@ -530,7 +530,7 @@ databases:
             scenarios:
             - stage
           cluster_count:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           clusters:
@@ -562,7 +562,7 @@ databases:
             scenarios:
             - stage
           projects:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           qc:
@@ -574,7 +574,7 @@ databases:
             scenarios:
             - stage
           unmatched:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
       lims:
@@ -594,7 +594,7 @@ databases:
             scenarios:
             - stage
           name:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           project_ids_list:
@@ -744,7 +744,7 @@ databases:
             scenarios:
             - stage
           status:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           university:
@@ -774,7 +774,7 @@ databases:
             scenarios:
             - stage
           modified:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           pending:
@@ -796,7 +796,7 @@ databases:
             scenarios:
             - stage
           owner:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       info:
@@ -812,7 +812,7 @@ databases:
       log:
         views:
           account:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           entity:
@@ -824,7 +824,7 @@ databases:
             scenarios:
             - stage
           modified:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       message:
@@ -926,7 +926,7 @@ databases:
             scenarios:
             - stage
           status:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           university:
@@ -980,11 +980,11 @@ databases:
             scenarios:
             - stage
           modified:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           owner:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       info:
@@ -1000,7 +1000,7 @@ databases:
       log:
         views:
           account:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           entity:
@@ -1068,7 +1068,7 @@ databases:
             scenarios:
             - stage
           status:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           tag:
@@ -1162,11 +1162,11 @@ databases:
             scenarios:
             - stage
           modified:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           owner:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
       info:
@@ -1182,7 +1182,7 @@ databases:
       log:
         views:
           account:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           entity:
@@ -1250,7 +1250,7 @@ databases:
             scenarios:
             - stage
           status:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           tag:
@@ -1344,7 +1344,7 @@ databases:
             scenarios:
             - stage
           modified:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           owner:
@@ -1424,7 +1424,7 @@ databases:
             scenarios:
             - stage
           owner:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           owner_status:
@@ -1432,7 +1432,7 @@ databases:
             scenarios:
             - stage
           status:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           tag:
@@ -1536,7 +1536,7 @@ databases:
             scenarios:
             - stage
           modified:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           owner:
@@ -1616,7 +1616,7 @@ databases:
             scenarios:
             - stage
           owner:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           owner_status:
@@ -1624,7 +1624,7 @@ databases:
             scenarios:
             - stage
           status:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           tag:
@@ -1724,7 +1724,7 @@ databases:
             scenarios:
             - stage
           modified:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           owner:
@@ -1804,7 +1804,7 @@ databases:
             scenarios:
             - stage
           owner:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           owner_status:
@@ -1812,7 +1812,7 @@ databases:
             scenarios:
             - stage
           status:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           tag:
@@ -1842,7 +1842,7 @@ databases:
       entire_document:
         views:
           by_date:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
   project_creation_forms:
@@ -2020,7 +2020,7 @@ databases:
             scenarios:
             - stage
           date_samples_applications:
-            reduce: true
+            reduce: false
             scenarios:
             - stage
           details_count:
@@ -2060,7 +2060,7 @@ databases:
             scenarios:
             - stage
           samples_applications:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           staged_files_sum:
@@ -2379,10 +2379,6 @@ databases:
             - stage
       contamination:
         views:
-          E.Lundberg:
-            reduce: false
-            scenarios:
-            - stage
           Serch_by_proj_name:
             reduce: false
             scenarios:
@@ -2398,19 +2394,19 @@ databases:
       dates:
         views:
           count:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
       flowcell:
         views:
           name:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
       lanes:
         views:
           count:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
       names:
@@ -2486,7 +2482,7 @@ databases:
             scenarios:
             - stage
           summary:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
       sample:
@@ -2522,7 +2518,7 @@ databases:
       sensor_id:
         views:
           by_date:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
   server_status:
@@ -2610,7 +2606,7 @@ databases:
             scenarios:
             - stage
           projects:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
       time:
@@ -2658,7 +2654,7 @@ databases:
             scenarios:
             - stage
           count:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           email:
@@ -2776,7 +2772,7 @@ databases:
       plot:
         views:
           count:
-            reduce: false
+            reduce: true
             scenarios:
             - stage
           reads_yield:
