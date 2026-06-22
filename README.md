@@ -31,13 +31,13 @@ Thank you!
 To try to keep the views_config.yaml file up to date with the content of the repository, the script script/validate_views_config.py can be used:
 
 ```
-> python scripts/validate_views_config.py --config view_config.yaml --views-dir StatusDB_views --check
+> python scripts/validate_views_config.py --config views_config.yaml --views-dir StatusDB_views --check
 ✅ Config is up to date with directory structure
 ```
 
 And to update the config (default is that a new view will not be included in dev):
 ```
-> python scripts/validate_views_config.py --config view_config.yaml --views-dir StatusDB_views --update
+> python scripts/validate_views_config.py --config views_config.yaml --views-dir StatusDB_views --update
 ```
 
 # Seed Data
