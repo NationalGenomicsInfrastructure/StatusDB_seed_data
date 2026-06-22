@@ -19,7 +19,7 @@ def scan_views_directory(views_dir):
                 databases[db_name]["design_docs"][design_doc_name] = {"views": {}}
                 for view_file in sorted(item.glob("*.map.js")):
                     view_name = view_file.stem.replace('.map', '')
-                    reduce_file = item / f"{view_name}_reduce.js"
+                    reduce_file = item / f"{view_name}.reduce.js"
                     databases[db_name]["design_docs"][design_doc_name]["views"][view_name] = {
                         "reduce": reduce_file.exists()
                     }
@@ -91,17 +91,18 @@ def compare_and_report(scanned_config, loaded_config):
     return all_ok
 
 def update_config(scanned_config, loaded_config):
-    """Update the loaded config to match the scanned structure, preserving dev flags."""
+    """Update the loaded config to match the scanned structure, preserving scenarios."""
     updated_config = {"databases": {}}
     for db_name, db_data in scanned_config.get("databases", {}).items():
         updated_config["databases"][db_name] = {"design_docs": {}}
         for doc_name, doc_data in db_data.get("design_docs", {}).items():
             updated_config["databases"][db_name]["design_docs"][doc_name] = {"views": {}}
             for view_name, view_config in doc_data.get("views", {}).items():
-                dev_flag = loaded_config.get("databases", {}).get(db_name, {}).get("design_docs", {}).get(doc_name, {}).get("views", {}).get(view_name, {}).get("dev", False)
+                # Get existing scenarios list, default to ["stage"]
+                scenarios = loaded_config.get("databases", {}).get(db_name, {}).get("design_docs", {}).get(doc_name, {}).get("views", {}).get(view_name, {}).get("scenarios", ["stage"])
                 updated_config["databases"][db_name]["design_docs"][doc_name]["views"][view_name] = {
                     "reduce": view_config["reduce"],
-                    "dev": dev_flag
+                    "scenarios": scenarios
                 }
     return updated_config
 
