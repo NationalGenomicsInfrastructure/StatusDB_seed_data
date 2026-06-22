@@ -1,0 +1,2801 @@
+databases:
+  agreement_templates:
+    design_docs:
+      entire_document:
+        views:
+          by_version:
+            reduce: false
+            scenarios:
+            - stage
+  agreements:
+    design_docs:
+      entire_document:
+        views:
+          project_id:
+            reduce: false
+            scenarios:
+            - stage
+      project:
+        views:
+          project_id:
+            reduce: false
+            scenarios:
+            - stage
+  analysis:
+    design_docs:
+      multiqc:
+        views:
+          full_doc:
+            reduce: false
+            scenarios:
+            - stage
+          modules:
+            reduce: false
+            scenarios:
+            - stage
+      names:
+        views:
+          id_to_name:
+            reduce: true
+            scenarios:
+            - stage
+      process_flow:
+        views:
+          KPI:
+            reduce: true
+            scenarios:
+            - stage
+          KPI_applications:
+            reduce: true
+            scenarios:
+            - stage
+      project:
+        views:
+          name2_id:
+            reduce: false
+            scenarios:
+            - stage
+          name2application:
+            reduce: false
+            scenarios:
+            - stage
+          name2customer_reference:
+            reduce: false
+            scenarios:
+            - stage
+          name2no_of_samples:
+            reduce: false
+            scenarios:
+            - stage
+          name2open_date:
+            reduce: false
+            scenarios:
+            - stage
+          name2project_id:
+            reduce: false
+            scenarios:
+            - stage
+          name2reference_genome:
+            reduce: false
+            scenarios:
+            - stage
+          name2uppnex_id:
+            reduce: false
+            scenarios:
+            - stage
+          project_id:
+            reduce: false
+            scenarios:
+            - stage
+          project_name:
+            reduce: true
+            scenarios:
+            - stage
+      reports:
+        views:
+          RNA_report:
+            reduce: false
+            scenarios:
+            - stage
+      samples:
+        views:
+          samp_top3:
+            reduce: false
+            scenarios:
+            - stage
+  application_categories:
+    design_docs:
+      general:
+        views:
+          app_cat:
+            reduce: false
+            scenarios:
+            - stage
+  bioinfo_analysis:
+    design_docs:
+      full_doc:
+        views:
+          pj_run_lane_sample_to_doc:
+            reduce: false
+            scenarios:
+            - stage
+          pj_run_to_doc:
+            reduce: false
+            scenarios:
+            - stage
+          pj_sample_run_lane_to_doc:
+            reduce: false
+            scenarios:
+            - stage
+          proj_run_lane_to_doc:
+            reduce: false
+            scenarios:
+            - stage
+          project_to_doc:
+            reduce: false
+            scenarios:
+            - stage
+          run_id_to_doc:
+            reduce: false
+            scenarios:
+            - stage
+      general:
+        views:
+          incoming_projectids:
+            reduce: true
+            scenarios:
+            - stage
+          not_ongoing_projectids:
+            reduce: true
+            scenarios:
+            - stage
+          not_ongoing_runids:
+            reduce: false
+            scenarios:
+            - stage
+          ongoing_projectids:
+            reduce: false
+            scenarios:
+            - stage
+      genomics_dashboard:
+        views:
+          run_lane_sample_status:
+            reduce: true
+            scenarios:
+            - stage
+      keys:
+        views:
+          pj_run:
+            reduce: false
+            scenarios:
+            - stage
+          run_id:
+            reduce: false
+            scenarios:
+            - stage
+      latest_data:
+        views:
+          project_id:
+            reduce: false
+            scenarios:
+            - stage
+          sample_id:
+            reduce: false
+            scenarios:
+            - stage
+          sample_id_open:
+            reduce: false
+            scenarios:
+            - stage
+      status:
+        views:
+          pj_run:
+            reduce: false
+            scenarios:
+            - stage
+  biomek_logs:
+    design_docs:
+      dates:
+        views:
+          timestamp:
+            reduce: false
+            scenarios:
+            - stage
+      names:
+        views:
+          run_finished:
+            reduce: false
+            scenarios:
+            - stage
+  charon:
+    design_docs:
+      filters:
+        views: {}
+      internal:
+        views:
+          sampleids_to_projectids:
+            reduce: false
+            scenarios:
+            - stage
+      libprep:
+        views:
+          count:
+            reduce: true
+            scenarios:
+            - stage
+          libprepid:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: true
+            scenarios:
+            - stage
+      log:
+        views:
+          doc:
+            reduce: false
+            scenarios:
+            - stage
+      project:
+        views:
+          modified:
+            reduce: true
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          not_done:
+            reduce: false
+            scenarios:
+            - stage
+          projectid:
+            reduce: false
+            scenarios:
+            - stage
+          splitname:
+            reduce: false
+            scenarios:
+            - stage
+      sample:
+        views:
+          analyzed_failed:
+            reduce: false
+            scenarios:
+            - stage
+          count:
+            reduce: true
+            scenarios:
+            - stage
+          count_delivered:
+            reduce: true
+            scenarios:
+            - stage
+          count_done:
+            reduce: true
+            scenarios:
+            - stage
+          done:
+            reduce: false
+            scenarios:
+            - stage
+          failed:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: true
+            scenarios:
+            - stage
+          not_done:
+            reduce: false
+            scenarios:
+            - stage
+          running:
+            reduce: false
+            scenarios:
+            - stage
+          sampleid:
+            reduce: false
+            scenarios:
+            - stage
+          sequenced:
+            reduce: true
+            scenarios:
+            - stage
+          summary_count:
+            reduce: true
+            scenarios:
+            - stage
+          total_coverage:
+            reduce: true
+            scenarios:
+            - stage
+      seqrun:
+        views:
+          count:
+            reduce: true
+            scenarios:
+            - stage
+          seqrunid:
+            reduce: false
+            scenarios:
+            - stage
+      test:
+        views:
+          test:
+            reduce: false
+            scenarios:
+            - stage
+      user:
+        views:
+          api_token:
+            reduce: false
+            scenarios:
+            - stage
+          email:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+  cost_calculator:
+    design_docs:
+      entire_document:
+        views:
+          by_version:
+            reduce: false
+            scenarios:
+            - stage
+          published_by_version:
+            reduce: false
+            scenarios:
+            - stage
+      version_info:
+        views: {}
+  cronjobs:
+    design_docs:
+      server:
+        views:
+          alias:
+            reduce: false
+            scenarios:
+            - stage
+  demux_configuration:
+    design_docs:
+      summary:
+        views: {}
+  demux_sample_info:
+    design_docs:
+      info:
+        views:
+          flowcell_id:
+            reduce: false
+            scenarios:
+            - stage
+      summary:
+        views:
+          date_flowcell_id:
+            reduce: false
+            scenarios:
+            - stage
+  element_runs:
+    design_docs:
+      dashboard:
+        views:
+          week_instr_bp:
+            reduce: true
+            scenarios:
+            - stage
+      info:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          reads_yield:
+            reduce: false
+            scenarios:
+            - stage
+          status:
+            reduce: true
+            scenarios:
+            - stage
+          summary:
+            reduce: true
+            scenarios:
+            - stage
+      names:
+        views:
+          project_ids_list:
+            reduce: false
+            scenarios:
+            - stage
+  expected_yields:
+    design_docs:
+      yields:
+        views:
+          avg_yield:
+            reduce: false
+            scenarios:
+            - stage
+          min_yield:
+            reduce: false
+            scenarios:
+            - stage
+  flowcell_status:
+    design_docs:
+      events:
+        views:
+          all:
+            reduce: false
+            scenarios:
+            - stage
+          current_status_per_fcid:
+            reduce: false
+            scenarios:
+            - stage
+          current_status_per_runfolder:
+            reduce: false
+            scenarios:
+            - stage
+      lookup:
+        views:
+          flowcell_id:
+            reduce: false
+            scenarios:
+            - stage
+          runfolder_id:
+            reduce: false
+            scenarios:
+            - stage
+      summary:
+        views:
+          date_flowcell_id:
+            reduce: false
+            scenarios:
+            - stage
+  flowcells:
+    design_docs:
+      info:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          software_run_mode:
+            reduce: false
+            scenarios:
+            - stage
+          storage_status:
+            reduce: true
+            scenarios:
+            - stage
+          summary:
+            reduce: false
+            scenarios:
+            - stage
+          summary2:
+            reduce: false
+            scenarios:
+            - stage
+      instr:
+        views:
+          unmatched:
+            reduce: true
+            scenarios:
+            - stage
+      instrument:
+        views:
+          bp_yield:
+            reduce: false
+            scenarios:
+            - stage
+          clusters_raw:
+            reduce: false
+            scenarios:
+            - stage
+          error_rates:
+            reduce: false
+            scenarios:
+            - stage
+          unmatched:
+            reduce: false
+            scenarios:
+            - stage
+          yield:
+            reduce: false
+            scenarios:
+            - stage
+      lanes:
+        views:
+          bp_yield:
+            reduce: false
+            scenarios:
+            - stage
+          cluster_cont:
+            reduce: false
+            scenarios:
+            - stage
+          cluster_count:
+            reduce: true
+            scenarios:
+            - stage
+          clusters:
+            reduce: false
+            scenarios:
+            - stage
+          date_pf:
+            reduce: true
+            scenarios:
+            - stage
+          demultiplex:
+            reduce: false
+            scenarios:
+            - stage
+          err_rate_phix_yield:
+            reduce: false
+            scenarios:
+            - stage
+          gtq30:
+            reduce: true
+            scenarios:
+            - stage
+          gtq30_old:
+            reduce: true
+            scenarios:
+            - stage
+          project_lane_undemultiplex:
+            reduce: false
+            scenarios:
+            - stage
+          projects:
+            reduce: true
+            scenarios:
+            - stage
+          qc:
+            reduce: false
+            scenarios:
+            - stage
+          qtq30_old:
+            reduce: false
+            scenarios:
+            - stage
+          unmatched:
+            reduce: false
+            scenarios:
+            - stage
+      lims:
+        views:
+          summary:
+            reduce: false
+            scenarios:
+            - stage
+      names:
+        views:
+          Barcode_lane_stat:
+            reduce: false
+            scenarios:
+            - stage
+          id_to_name:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          project_ids_list:
+            reduce: false
+            scenarios:
+            - stage
+      reads:
+        views:
+          per_lane:
+            reduce: false
+            scenarios:
+            - stage
+      samples:
+        views:
+          demultiplex:
+            reduce: false
+            scenarios:
+            - stage
+          lane_clusters:
+            reduce: false
+            scenarios:
+            - stage
+      time:
+        views:
+          dates:
+            reduce: true
+            scenarios:
+            - stage
+          last_updated:
+            reduce: false
+            scenarios:
+            - stage
+  gs_users:
+    design_docs:
+      authorized:
+        views:
+          api_users:
+            reduce: false
+            scenarios:
+            - stage
+          info:
+            reduce: false
+            scenarios:
+            - stage
+          users:
+            reduce: false
+            scenarios:
+            - stage
+  instrument_logs:
+    design_docs:
+      time:
+        views:
+          last_week:
+            reduce: false
+            scenarios:
+            - stage
+          timestamp:
+            reduce: false
+            scenarios:
+            - stage
+  instruments:
+    design_docs:
+      info:
+        views:
+          id_to_name:
+            reduce: false
+            scenarios:
+            - stage
+  kpi:
+    design_docs:
+      dashboard:
+        views:
+          by_time:
+            reduce: false
+            scenarios:
+            - stage
+  nanopore_runs:
+    design_docs:
+      dashboard:
+        views:
+          week_instr_bp:
+            reduce: true
+            scenarios:
+            - stage
+      info:
+        views:
+          all_stats:
+            reduce: false
+            scenarios:
+            - stage
+          args:
+            reduce: false
+            scenarios:
+            - stage
+          barcodes:
+            reduce: false
+            scenarios:
+            - stage
+          lims:
+            reduce: false
+            scenarios:
+            - stage
+          mux_scans:
+            reduce: false
+            scenarios:
+            - stage
+          pore_count_history:
+            reduce: false
+            scenarios:
+            - stage
+      names:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          project_ids_list:
+            reduce: false
+            scenarios:
+            - stage
+  orderportal_compcent:
+    design_docs:
+      account:
+        views:
+          api_key:
+            reduce: false
+            scenarios:
+            - stage
+          email:
+            reduce: false
+            scenarios:
+            - stage
+          first_name:
+            reduce: false
+            scenarios:
+            - stage
+          last_name:
+            reduce: false
+            scenarios:
+            - stage
+          login:
+            reduce: false
+            scenarios:
+            - stage
+          role:
+            reduce: false
+            scenarios:
+            - stage
+          status:
+            reduce: true
+            scenarios:
+            - stage
+          university:
+            reduce: false
+            scenarios:
+            - stage
+      event:
+        views:
+          date:
+            reduce: false
+            scenarios:
+            - stage
+      file:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      form:
+        views:
+          disabled:
+            reduce: false
+            scenarios:
+            - stage
+          enabled:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: true
+            scenarios:
+            - stage
+          pending:
+            reduce: false
+            scenarios:
+            - stage
+      group:
+        views:
+          invited:
+            reduce: false
+            scenarios:
+            - stage
+          member:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: true
+            scenarios:
+            - stage
+          owner:
+            reduce: true
+            scenarios:
+            - stage
+      info:
+        views:
+          menu:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      log:
+        views:
+          account:
+            reduce: true
+            scenarios:
+            - stage
+          entity:
+            reduce: false
+            scenarios:
+            - stage
+          login_failure:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: true
+            scenarios:
+            - stage
+      message:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          recipient:
+            reduce: true
+            scenarios:
+            - stage
+          unsent:
+            reduce: false
+            scenarios:
+            - stage
+      meta:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+      news:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      order:
+        views:
+          form:
+            reduce: true
+            scenarios:
+            - stage
+          identifier:
+            reduce: false
+            scenarios:
+            - stage
+          keyword:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: true
+            scenarios:
+            - stage
+          owner_status:
+            reduce: true
+            scenarios:
+            - stage
+          status:
+            reduce: true
+            scenarios:
+            - stage
+          tag:
+            reduce: false
+            scenarios:
+            - stage
+          title:
+            reduce: false
+            scenarios:
+            - stage
+      text:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+  orderportal_cryoem:
+    design_docs:
+      account:
+        views:
+          api_key:
+            reduce: false
+            scenarios:
+            - stage
+          email:
+            reduce: false
+            scenarios:
+            - stage
+          first_name:
+            reduce: false
+            scenarios:
+            - stage
+          last_name:
+            reduce: false
+            scenarios:
+            - stage
+          login:
+            reduce: false
+            scenarios:
+            - stage
+          role:
+            reduce: false
+            scenarios:
+            - stage
+          status:
+            reduce: true
+            scenarios:
+            - stage
+          university:
+            reduce: false
+            scenarios:
+            - stage
+      event:
+        views:
+          date:
+            reduce: false
+            scenarios:
+            - stage
+      fields:
+        views:
+          pi_identifier:
+            reduce: false
+            scenarios:
+            - stage
+      file:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      form:
+        views:
+          disabled:
+            reduce: false
+            scenarios:
+            - stage
+          enabled:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          pending:
+            reduce: false
+            scenarios:
+            - stage
+      group:
+        views:
+          invited:
+            reduce: false
+            scenarios:
+            - stage
+          member:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: true
+            scenarios:
+            - stage
+      info:
+        views:
+          menu:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      log:
+        views:
+          account:
+            reduce: true
+            scenarios:
+            - stage
+          entity:
+            reduce: false
+            scenarios:
+            - stage
+          login_failure:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      message:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          recipient:
+            reduce: true
+            scenarios:
+            - stage
+          unsent:
+            reduce: false
+            scenarios:
+            - stage
+      meta:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+      news:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      order:
+        views:
+          form:
+            reduce: true
+            scenarios:
+            - stage
+          identifier:
+            reduce: false
+            scenarios:
+            - stage
+          keyword:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: true
+            scenarios:
+            - stage
+          owner_status:
+            reduce: true
+            scenarios:
+            - stage
+          status:
+            reduce: false
+            scenarios:
+            - stage
+          tag:
+            reduce: false
+            scenarios:
+            - stage
+          title:
+            reduce: false
+            scenarios:
+            - stage
+      text:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+  orderportal_demo:
+    design_docs:
+      account:
+        views:
+          api_key:
+            reduce: false
+            scenarios:
+            - stage
+          email:
+            reduce: false
+            scenarios:
+            - stage
+          first_name:
+            reduce: false
+            scenarios:
+            - stage
+          last_name:
+            reduce: false
+            scenarios:
+            - stage
+          login:
+            reduce: false
+            scenarios:
+            - stage
+          role:
+            reduce: false
+            scenarios:
+            - stage
+          status:
+            reduce: false
+            scenarios:
+            - stage
+          university:
+            reduce: false
+            scenarios:
+            - stage
+      event:
+        views:
+          date:
+            reduce: false
+            scenarios:
+            - stage
+      file:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      form:
+        views:
+          disabled:
+            reduce: false
+            scenarios:
+            - stage
+          enabled:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          pending:
+            reduce: false
+            scenarios:
+            - stage
+      group:
+        views:
+          invited:
+            reduce: false
+            scenarios:
+            - stage
+          member:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: true
+            scenarios:
+            - stage
+      info:
+        views:
+          menu:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      log:
+        views:
+          account:
+            reduce: true
+            scenarios:
+            - stage
+          entity:
+            reduce: false
+            scenarios:
+            - stage
+          login_failure:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      message:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          recipient:
+            reduce: true
+            scenarios:
+            - stage
+          unsent:
+            reduce: false
+            scenarios:
+            - stage
+      meta:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+      news:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      order:
+        views:
+          form:
+            reduce: true
+            scenarios:
+            - stage
+          identifier:
+            reduce: false
+            scenarios:
+            - stage
+          keyword:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: true
+            scenarios:
+            - stage
+          owner_status:
+            reduce: true
+            scenarios:
+            - stage
+          status:
+            reduce: false
+            scenarios:
+            - stage
+          tag:
+            reduce: false
+            scenarios:
+            - stage
+          title:
+            reduce: false
+            scenarios:
+            - stage
+      text:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+  orderportal_natproj:
+    design_docs:
+      account:
+        views:
+          api_key:
+            reduce: false
+            scenarios:
+            - stage
+          email:
+            reduce: false
+            scenarios:
+            - stage
+          first_name:
+            reduce: false
+            scenarios:
+            - stage
+          last_name:
+            reduce: false
+            scenarios:
+            - stage
+          login:
+            reduce: false
+            scenarios:
+            - stage
+          role:
+            reduce: false
+            scenarios:
+            - stage
+          status:
+            reduce: false
+            scenarios:
+            - stage
+          university:
+            reduce: false
+            scenarios:
+            - stage
+      event:
+        views:
+          date:
+            reduce: false
+            scenarios:
+            - stage
+      file:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      form:
+        views:
+          disabled:
+            reduce: false
+            scenarios:
+            - stage
+          enabled:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          pending:
+            reduce: false
+            scenarios:
+            - stage
+      group:
+        views:
+          invited:
+            reduce: false
+            scenarios:
+            - stage
+          member:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: false
+            scenarios:
+            - stage
+      info:
+        views:
+          menu:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      log:
+        views:
+          account:
+            reduce: false
+            scenarios:
+            - stage
+          entity:
+            reduce: false
+            scenarios:
+            - stage
+          login_failure:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      message:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          recipient:
+            reduce: true
+            scenarios:
+            - stage
+          unsent:
+            reduce: false
+            scenarios:
+            - stage
+      meta:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+      news:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      order:
+        views:
+          form:
+            reduce: true
+            scenarios:
+            - stage
+          identifier:
+            reduce: false
+            scenarios:
+            - stage
+          keyword:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: false
+            scenarios:
+            - stage
+          owner_status:
+            reduce: true
+            scenarios:
+            - stage
+          status:
+            reduce: false
+            scenarios:
+            - stage
+          tag:
+            reduce: false
+            scenarios:
+            - stage
+          title:
+            reduce: false
+            scenarios:
+            - stage
+      text:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+  orderportal_ngi:
+    design_docs:
+      account:
+        views:
+          api_key:
+            reduce: false
+            scenarios:
+            - stage
+          email:
+            reduce: false
+            scenarios:
+            - stage
+          first_name:
+            reduce: false
+            scenarios:
+            - stage
+          last_name:
+            reduce: false
+            scenarios:
+            - stage
+          login:
+            reduce: false
+            scenarios:
+            - stage
+          role:
+            reduce: false
+            scenarios:
+            - stage
+          status:
+            reduce: false
+            scenarios:
+            - stage
+          university:
+            reduce: false
+            scenarios:
+            - stage
+      event:
+        views:
+          date:
+            reduce: false
+            scenarios:
+            - stage
+      fields:
+        views:
+          Owner:
+            reduce: false
+            scenarios:
+            - stage
+          Status:
+            reduce: false
+            scenarios:
+            - stage
+      file:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      form:
+        views:
+          disabled:
+            reduce: false
+            scenarios:
+            - stage
+          enabled:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          pending:
+            reduce: false
+            scenarios:
+            - stage
+      group:
+        views:
+          invited:
+            reduce: false
+            scenarios:
+            - stage
+          member:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: false
+            scenarios:
+            - stage
+      info:
+        views:
+          menu:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      log:
+        views:
+          account:
+            reduce: false
+            scenarios:
+            - stage
+          entity:
+            reduce: false
+            scenarios:
+            - stage
+          login_failure:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      message:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          recipient:
+            reduce: true
+            scenarios:
+            - stage
+          unsent:
+            reduce: false
+            scenarios:
+            - stage
+      meta:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+      news:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      order:
+        views:
+          form:
+            reduce: true
+            scenarios:
+            - stage
+          identifier:
+            reduce: false
+            scenarios:
+            - stage
+          keyword:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: false
+            scenarios:
+            - stage
+          owner_status:
+            reduce: true
+            scenarios:
+            - stage
+          status:
+            reduce: false
+            scenarios:
+            - stage
+          tag:
+            reduce: false
+            scenarios:
+            - stage
+          title:
+            reduce: false
+            scenarios:
+            - stage
+      taca:
+        views:
+          project_id_to_pi_email:
+            reduce: false
+            scenarios:
+            - stage
+      text:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+  orderportal_nmi:
+    design_docs:
+      account:
+        views:
+          api_key:
+            reduce: false
+            scenarios:
+            - stage
+          email:
+            reduce: false
+            scenarios:
+            - stage
+          first_name:
+            reduce: false
+            scenarios:
+            - stage
+          last_name:
+            reduce: false
+            scenarios:
+            - stage
+          login:
+            reduce: false
+            scenarios:
+            - stage
+          role:
+            reduce: false
+            scenarios:
+            - stage
+          status:
+            reduce: false
+            scenarios:
+            - stage
+          university:
+            reduce: false
+            scenarios:
+            - stage
+      event:
+        views:
+          date:
+            reduce: false
+            scenarios:
+            - stage
+      file:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      form:
+        views:
+          disabled:
+            reduce: false
+            scenarios:
+            - stage
+          enabled:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          pending:
+            reduce: false
+            scenarios:
+            - stage
+      group:
+        views:
+          invited:
+            reduce: false
+            scenarios:
+            - stage
+          member:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: false
+            scenarios:
+            - stage
+      info:
+        views:
+          menu:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      log:
+        views:
+          account:
+            reduce: false
+            scenarios:
+            - stage
+          entity:
+            reduce: false
+            scenarios:
+            - stage
+          login_failure:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      message:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          recipient:
+            reduce: true
+            scenarios:
+            - stage
+          unsent:
+            reduce: false
+            scenarios:
+            - stage
+      meta:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+      news:
+        views:
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+      order:
+        views:
+          form:
+            reduce: true
+            scenarios:
+            - stage
+          identifier:
+            reduce: false
+            scenarios:
+            - stage
+          keyword:
+            reduce: false
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          owner:
+            reduce: false
+            scenarios:
+            - stage
+          owner_status:
+            reduce: true
+            scenarios:
+            - stage
+          status:
+            reduce: false
+            scenarios:
+            - stage
+          tag:
+            reduce: false
+            scenarios:
+            - stage
+          title:
+            reduce: false
+            scenarios:
+            - stage
+      text:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+  people_assignments:
+    design_docs:
+      current:
+        views:
+          assignments:
+            reduce: false
+            scenarios:
+            - stage
+  pricing_exchange_rates:
+    design_docs:
+      entire_document:
+        views:
+          by_date:
+            reduce: true
+            scenarios:
+            - stage
+  project_creation_forms:
+    design_docs:
+      by_creation_date:
+        views:
+          not_retired:
+            reduce: false
+            scenarios:
+            - stage
+          valid:
+            reduce: false
+            scenarios:
+            - stage
+      summary:
+        views:
+          all:
+            reduce: false
+            scenarios:
+            - stage
+  projects:
+    design_docs:
+      daily_read:
+        views: {}
+      date:
+        views:
+          creation_time_v:
+            reduce: true
+            scenarios:
+            - stage
+          m_bp_delivered:
+            reduce: true
+            scenarios:
+            - stage
+      genomics-dashboard:
+        views:
+          dates_and_load_per_sample:
+            reduce: true
+            scenarios:
+            - stage
+          open_application_count_projects:
+            reduce: true
+            scenarios:
+            - stage
+          open_application_count_samples:
+            reduce: true
+            scenarios:
+            - stage
+          open_application_count_seq_projects:
+            reduce: true
+            scenarios:
+            - stage
+          year_affiliation_count_projects:
+            reduce: true
+            scenarios:
+            - stage
+          year_application_count:
+            reduce: true
+            scenarios:
+            - stage
+          year_application_count_samples:
+            reduce: true
+            scenarios:
+            - stage
+          year_deliverytime_count_projects:
+            reduce: true
+            scenarios:
+            - stage
+          year_deliverytime_median_by_application:
+            reduce: true
+            scenarios:
+            - stage
+          year_seq_application_count:
+            reduce: true
+            scenarios:
+            - stage
+          year_seq_application_count_samples:
+            reduce: true
+            scenarios:
+            - stage
+      invoicing:
+        views: {}
+      kpi_external:
+        views:
+          KPI1:
+            reduce: true
+            scenarios:
+            - stage
+          KPI1_1:
+            reduce: true
+            scenarios:
+            - stage
+          KPI2:
+            reduce: true
+            scenarios:
+            - stage
+          KPI3:
+            reduce: true
+            scenarios:
+            - stage
+          KPI3_1:
+            reduce: false
+            scenarios:
+            - stage
+          applications_projects:
+            reduce: true
+            scenarios:
+            - stage
+          applications_samples:
+            reduce: false
+            scenarios:
+            - stage
+          date_affiliation:
+            reduce: false
+            scenarios:
+            - stage
+          projects:
+            reduce: true
+            scenarios:
+            - stage
+      names:
+        views:
+          id_to_name:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      order_portal:
+        views:
+          ProjectID_to_PortalID:
+            reduce: false
+            scenarios:
+            - stage
+      process_flow:
+        views:
+          KPI:
+            reduce: true
+            scenarios:
+            - stage
+          KPI_appl_pf_dates_sampl_lanes:
+            reduce: true
+            scenarios:
+            - stage
+          KPI_applications:
+            reduce: true
+            scenarios:
+            - stage
+          KPI_applications_test:
+            reduce: true
+            scenarios:
+            - stage
+      project:
+        views:
+          applications:
+            reduce: true
+            scenarios:
+            - stage
+          caliper_links:
+            reduce: false
+            scenarios:
+            - stage
+          controls:
+            reduce: false
+            scenarios:
+            - stage
+          dailyread_dates:
+            reduce: false
+            scenarios:
+            - stage
+          date_applications:
+            reduce: false
+            scenarios:
+            - stage
+          date_samples_applications:
+            reduce: true
+            scenarios:
+            - stage
+          details_count:
+            reduce: true
+            scenarios:
+            - stage
+          frag_an_links:
+            reduce: false
+            scenarios:
+            - stage
+          id_name_dates:
+            reduce: false
+            scenarios:
+            - stage
+          lib_const_meth:
+            reduce: false
+            scenarios:
+            - stage
+          project_dates:
+            reduce: false
+            scenarios:
+            - stage
+          project_id:
+            reduce: false
+            scenarios:
+            - stage
+          project_name:
+            reduce: false
+            scenarios:
+            - stage
+          sample_list:
+            reduce: false
+            scenarios:
+            - stage
+          samples:
+            reduce: false
+            scenarios:
+            - stage
+          samples_applications:
+            reduce: false
+            scenarios:
+            - stage
+          staged_files_sum:
+            reduce: false
+            scenarios:
+            - stage
+          status_lanes_ordered:
+            reduce: false
+            scenarios:
+            - stage
+          summary:
+            reduce: false
+            scenarios:
+            - stage
+          summary_dates:
+            reduce: true
+            scenarios:
+            - stage
+          summary_develop:
+            reduce: false
+            scenarios:
+            - stage
+          summary_status:
+            reduce: false
+            scenarios:
+            - stage
+          summary_with_sources:
+            reduce: false
+            scenarios:
+            - stage
+      projects:
+        views:
+          appl_proj_sample_preps:
+            reduce: false
+            scenarios:
+            - stage
+          date_proj_sample_firstInitQcDate:
+            reduce: true
+            scenarios:
+            - stage
+          date_proj_sample_status:
+            reduce: true
+            scenarios:
+            - stage
+          id_to_name:
+            reduce: false
+            scenarios:
+            - stage
+          lims_followed:
+            reduce: false
+            scenarios:
+            - stage
+          name_to_id:
+            reduce: false
+            scenarios:
+            - stage
+          name_to_id_cust_ref:
+            reduce: false
+            scenarios:
+            - stage
+          open_date2project_name:
+            reduce: false
+            scenarios:
+            - stage
+          open_date2project_name_application:
+            reduce: false
+            scenarios:
+            - stage
+          proj2status_(manual):
+            reduce: false
+            scenarios:
+            - stage
+          project_name:
+            reduce: false
+            scenarios:
+            - stage
+      samples:
+        views:
+          customer_names:
+            reduce: false
+            scenarios:
+            - stage
+          info:
+            reduce: false
+            scenarios:
+            - stage
+          library_prep_dates:
+            reduce: true
+            scenarios:
+            - stage
+          library_preps:
+            reduce: true
+            scenarios:
+            - stage
+          rec_ctrl_view:
+            reduce: false
+            scenarios:
+            - stage
+          sample_project_name:
+            reduce: true
+            scenarios:
+            - stage
+      test:
+        views:
+          KPI:
+            reduce: true
+            scenarios:
+            - stage
+          KPI_applications:
+            reduce: true
+            scenarios:
+            - stage
+          appl_setup_lanes:
+            reduce: true
+            scenarios:
+            - stage
+          appl_setup_samples:
+            reduce: true
+            scenarios:
+            - stage
+          contact_mail:
+            reduce: true
+            scenarios:
+            - stage
+          date_proj2numLanes:
+            reduce: true
+            scenarios:
+            - stage
+          date_proj2numSamples:
+            reduce: true
+            scenarios:
+            - stage
+          open_date2proj_source_lims:
+            reduce: false
+            scenarios:
+            - stage
+          project2queueDate_closeDate:
+            reduce: true
+            scenarios:
+            - stage
+      time:
+        views:
+          last_updated:
+            reduce: false
+            scenarios:
+            - stage
+          time_tracking_delivered:
+            reduce: false
+            scenarios:
+            - stage
+  pubrefdb:
+    design_docs:
+      publication:
+        views:
+          author:
+            reduce: false
+            scenarios:
+            - stage
+          excluded:
+            reduce: false
+            scenarios:
+            - stage
+          incomplete:
+            reduce: false
+            scenarios:
+            - stage
+          journal:
+            reduce: false
+            scenarios:
+            - stage
+          journals:
+            reduce: true
+            scenarios:
+            - stage
+          modified:
+            reduce: false
+            scenarios:
+            - stage
+          published:
+            reduce: false
+            scenarios:
+            - stage
+          slug:
+            reduce: false
+            scenarios:
+            - stage
+          tag:
+            reduce: false
+            scenarios:
+            - stage
+          tags:
+            reduce: true
+            scenarios:
+            - stage
+          title:
+            reduce: false
+            scenarios:
+            - stage
+          type:
+            reduce: false
+            scenarios:
+            - stage
+          xref:
+            reduce: false
+            scenarios:
+            - stage
+          years:
+            reduce: true
+            scenarios:
+            - stage
+  reference:
+    design_docs:
+      documents:
+        views:
+          doc_source:
+            reduce: false
+            scenarios:
+            - stage
+          doc_type:
+            reduce: false
+            scenarios:
+            - stage
+          entity_types:
+            reduce: false
+            scenarios:
+            - stage
+  running_notes:
+    design_docs:
+      latest_note_previews:
+        views:
+          flowcell:
+            reduce: true
+            scenarios:
+            - stage
+          project:
+            reduce: true
+            scenarios:
+            - stage
+          workset:
+            reduce: true
+            scenarios:
+            - stage
+      latest_sticky_note_previews:
+        views:
+          project:
+            reduce: true
+            scenarios:
+            - stage
+      note_types:
+        views:
+          invoicing_notes:
+            reduce: false
+            scenarios:
+            - stage
+          sticky_notes:
+            reduce: false
+            scenarios:
+            - stage
+  sample_requirements:
+    design_docs:
+      drafts:
+        views:
+          by_date_and_user:
+            reduce: false
+            scenarios:
+            - stage
+      entire_document:
+        views:
+          by_version:
+            reduce: false
+            scenarios:
+            - stage
+          published_by_version:
+            reduce: false
+            scenarios:
+            - stage
+      valid:
+        views:
+          by_date:
+            reduce: false
+            scenarios:
+            - stage
+  samples:
+    design_docs:
+      barcodes:
+        views:
+          date_read_counts:
+            reduce: true
+            scenarios:
+            - stage
+          flowcell:
+            reduce: true
+            scenarios:
+            - stage
+          flowcell_sample:
+            reduce: true
+            scenarios:
+            - stage
+          flowcells:
+            reduce: true
+            scenarios:
+            - stage
+          read_conts:
+            reduce: true
+            scenarios:
+            - stage
+          read_counts:
+            reduce: true
+            scenarios:
+            - stage
+      bc_name:
+        views:
+          bc_count:
+            reduce: false
+            scenarios:
+            - stage
+      contamination:
+        views:
+          E.Lundberg:
+            reduce: false
+            scenarios:
+            - stage
+          Serch_by_proj_name:
+            reduce: false
+            scenarios:
+            - stage
+          fastq_scr:
+            reduce: false
+            scenarios:
+            - stage
+          index96_screen:
+            reduce: false
+            scenarios:
+            - stage
+      dates:
+        views:
+          count:
+            reduce: false
+            scenarios:
+            - stage
+      flowcell:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      lanes:
+        views:
+          count:
+            reduce: false
+            scenarios:
+            - stage
+      names:
+        views:
+          id_to_name:
+            reduce: false
+            scenarios:
+            - stage
+          id_to_proj:
+            reduce: false
+            scenarios:
+            - stage
+          id_to_proj_id:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          name_fc:
+            reduce: true
+            scenarios:
+            - stage
+          name_fc_proj:
+            reduce: true
+            scenarios:
+            - stage
+          name_proj:
+            reduce: true
+            scenarios:
+            - stage
+          name_to_id:
+            reduce: false
+            scenarios:
+            - stage
+          proj_fc_sample:
+            reduce: false
+            scenarios:
+            - stage
+          runs:
+            reduce: true
+            scenarios:
+            - stage
+          samplename_run:
+            reduce: true
+            scenarios:
+            - stage
+      qc:
+        views:
+          alignment_summary:
+            reduce: false
+            scenarios:
+            - stage
+          coverage:
+            reduce: false
+            scenarios:
+            - stage
+          date_reads_per_qv:
+            reduce: false
+            scenarios:
+            - stage
+          insert_size_distribution:
+            reduce: false
+            scenarios:
+            - stage
+          qc_summary:
+            reduce: false
+            scenarios:
+            - stage
+          reads_per_qv:
+            reduce: false
+            scenarios:
+            - stage
+          summary:
+            reduce: false
+            scenarios:
+            - stage
+      sample:
+        views:
+          INS_metrics:
+            reduce: false
+            scenarios:
+            - stage
+      samples:
+        views:
+          read_counts:
+            reduce: true
+            scenarios:
+            - stage
+      time:
+        views:
+          checkpoints:
+            reduce: false
+            scenarios:
+            - stage
+          last_updated:
+            reduce: false
+            scenarios:
+            - stage
+  sensorpush:
+    design_docs:
+      entire_document:
+        views:
+          by_sensor_id_and_date:
+            reduce: false
+            scenarios:
+            - stage
+      sensor_id:
+        views:
+          by_date:
+            reduce: false
+            scenarios:
+            - stage
+  server_status:
+    design_docs:
+      all_docs:
+        views:
+          by_timestamp:
+            reduce: false
+            scenarios:
+            - stage
+      nases:
+        views:
+          by_timestamp:
+            reduce: false
+            scenarios:
+            - stage
+          latest_data:
+            reduce: false
+            scenarios:
+            - stage
+      uppmax:
+        views:
+          by_timestamp:
+            reduce: false
+            scenarios:
+            - stage
+  suggestion_box:
+    design_docs:
+      card:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+          unarchived_jira_cards:
+            reduce: false
+            scenarios:
+            - stage
+      date:
+        views:
+          info:
+            reduce: false
+            scenarios:
+            - stage
+          title_description:
+            reduce: false
+            scenarios:
+            - stage
+          title_url:
+            reduce: false
+            scenarios:
+            - stage
+  taca_flowcells:
+    design_docs:
+      run:
+        views:
+          id_status:
+            reduce: false
+            scenarios:
+            - stage
+      status:
+        views:
+          archived:
+            reduce: false
+            scenarios:
+            - stage
+          archiving:
+            reduce: false
+            scenarios:
+            - stage
+          sequencing:
+            reduce: false
+            scenarios:
+            - stage
+  uppmax:
+    design_docs:
+      status:
+        views:
+          project_cpu_usage_over_time:
+            reduce: false
+            scenarios:
+            - stage
+          project_quota_usage_over_time:
+            reduce: false
+            scenarios:
+            - stage
+          projects:
+            reduce: false
+            scenarios:
+            - stage
+      time:
+        views:
+          last_updated:
+            reduce: false
+            scenarios:
+            - stage
+          last_updated_full_doc:
+            reduce: false
+            scenarios:
+            - stage
+  userman:
+    design_docs:
+      log:
+        views:
+          doc:
+            reduce: false
+            scenarios:
+            - stage
+      service:
+        views:
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          public:
+            reduce: false
+            scenarios:
+            - stage
+      team:
+        views:
+          leader:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+      user:
+        views:
+          blocked:
+            reduce: false
+            scenarios:
+            - stage
+          count:
+            reduce: false
+            scenarios:
+            - stage
+          email:
+            reduce: false
+            scenarios:
+            - stage
+          pending:
+            reduce: false
+            scenarios:
+            - stage
+          role:
+            reduce: false
+            scenarios:
+            - stage
+          team:
+            reduce: false
+            scenarios:
+            - stage
+          username:
+            reduce: false
+            scenarios:
+            - stage
+  worksets:
+    design_docs:
+      project:
+        views:
+          ws_name:
+            reduce: false
+            scenarios:
+            - stage
+          ws_proj:
+            reduce: false
+            scenarios:
+            - stage
+      worksets:
+        views:
+          controls_project_list:
+            reduce: false
+            scenarios:
+            - stage
+          lims_id:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          only_name:
+            reduce: false
+            scenarios:
+            - stage
+          summary:
+            reduce: false
+            scenarios:
+            - stage
+  x_flowcells:
+    design_docs:
+      dashboard:
+        views:
+          week_instr_bp:
+            reduce: true
+            scenarios:
+            - stage
+      info:
+        views:
+          id:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          short_name_to_full_name:
+            reduce: false
+            scenarios:
+            - stage
+          summary:
+            reduce: false
+            scenarios:
+            - stage
+          summary2:
+            reduce: false
+            scenarios:
+            - stage
+          summary2_full_id:
+            reduce: false
+            scenarios:
+            - stage
+          summary2_stats:
+            reduce: false
+            scenarios:
+            - stage
+      lanes:
+        views:
+          clusters:
+            reduce: false
+            scenarios:
+            - stage
+      names:
+        views:
+          id_to_name:
+            reduce: false
+            scenarios:
+            - stage
+          name:
+            reduce: false
+            scenarios:
+            - stage
+          project_ids_list:
+            reduce: false
+            scenarios:
+            - stage
+      plot:
+        views:
+          count:
+            reduce: false
+            scenarios:
+            - stage
+          reads_yield:
+            reduce: false
+            scenarios:
+            - stage
+      projects:
+        views:
+          fc_lane_ss:
+            reduce: false
+            scenarios:
+            - stage
+          projects_lanes:
+            reduce: true
+            scenarios:
+            - stage
+      samples:
+        views:
+          lane_clusters:
+            reduce: false
+            scenarios:
+            - stage
