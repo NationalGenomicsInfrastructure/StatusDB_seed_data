@@ -1,6 +1,10 @@
 import yaml
 from pathlib import Path
 import argparse
+import json
+import urllib.request
+import urllib.error
+from base64 import b64encode
 
 def scan_views_directory(views_dir):
     """Scan the views directory and return a config-like structure."""
@@ -106,12 +110,79 @@ def update_config(scanned_config, loaded_config):
                 }
     return updated_config
 
+def filter_views_by_scenario(config, scenario):
+    """Filter views that include the specified scenario."""
+    filtered = {"databases": {}}
+    for db_name, db_data in config.get("databases", {}).items():
+        filtered["databases"][db_name] = {"design_docs": {}}
+        for doc_name, doc_data in db_data.get("design_docs", {}).items():
+            views = {}
+            for view_name, view_config in doc_data.get("views", {}).items():
+                if scenario in view_config.get("scenarios", []):
+                    views[view_name] = view_config
+            if views:
+                filtered["databases"][db_name]["design_docs"][doc_name] = {"views": views}
+        if not filtered["databases"][db_name]["design_docs"]:
+            del filtered["databases"][db_name]
+    return filtered
+
+def build_design_doc(db_name, doc_name, views_config, views_dir):
+    """Build a CouchDB design document from view files."""
+    design_doc = {
+        "_id": f"_design/{doc_name}",
+        "language": "javascript",
+        "views": {}
+    }
+
+    doc_path = views_dir / db_name / doc_name
+    if not doc_path.exists():
+        return None
+
+    for view_name, view_config in views_config.items():
+        map_file = doc_path / f"{view_name}.map.js"
+        if not map_file.exists():
+            continue
+
+        design_doc["views"][view_name] = {
+            "map": map_file.read_text()
+        }
+
+        if view_config.get("reduce"):
+            reduce_file = doc_path / f"{view_name}.reduce.js"
+            if reduce_file.exists():
+                design_doc["views"][view_name]["reduce"] = reduce_file.read_text()
+
+    return design_doc if design_doc["views"] else None
+
+def build_design_docs(config, views_dir, design_docs_dir):
+    """Build design documents for deployment."""
+    design_docs_dir = Path(design_docs_dir)
+    design_docs_dir.mkdir(parents=True, exist_ok=True)
+
+    for db_name, db_data in config.get("databases", {}).items():
+        db_dir = design_docs_dir / db_name
+        db_dir.mkdir(parents=True, exist_ok=True)
+
+        for doc_name, doc_data in db_data.get("design_docs", {}).items():
+            design_doc = build_design_doc(db_name, doc_name, doc_data.get("views", {}), views_dir)
+            if not design_doc:
+                continue
+
+            doc_file = db_dir / f"{doc_name}.json"
+            doc_file.write_text(json.dumps(design_doc, indent=2))
+            print(f"✅ Built {db_name}/{doc_name}.json")
+
+
+
 def main():
     parser = argparse.ArgumentParser(description="Check or update CouchDB views config based on directory structure.")
     parser.add_argument("--config", default="config.yaml", help="Path to config file")
     parser.add_argument("--views-dir", default="views", help="Path to views directory")
     parser.add_argument("--check", action="store_true", help="Check if config is up to date")
     parser.add_argument("--update", action="store_true", help="Update config to match directory structure")
+    parser.add_argument("--build", action="store_true", help="Build design documents for deployment")
+    parser.add_argument("--scenario", default="stage", help="Scenario to deploy (default: stage)")
+    parser.add_argument("--design_docs_dir", default="design_docs_build", help="Directory to build design docs for deployment")
     args = parser.parse_args()
 
     views_dir = Path(args.views_dir)
@@ -119,7 +190,11 @@ def main():
     scanned_config = scan_views_directory(views_dir)
     loaded_config = load_config(config_path)
 
-    if args.update:
+    if args.build:
+        filtered_config = filter_views_by_scenario(loaded_config, args.scenario)
+        print(f"Building design documents for scenario: {args.scenario}")
+        build_design_docs(filtered_config, views_dir, args.design_docs_dir)
+    elif args.update:
         updated_config = update_config(scanned_config, loaded_config)
         save_config(updated_config, config_path)
         print(f"✅ Config updated to match directory structure. File saved to {config_path}")

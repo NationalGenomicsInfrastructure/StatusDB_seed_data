@@ -7,7 +7,11 @@ COUCHDB_PORT="${COUCHDB_PORT:-5984}"
 COUCHDB_USER="${COUCHDB_USER:-admin}"
 COUCHDB_PASSWORD="${COUCHDB_PASSWORD:-admin}"
 SEED_DIR="${SEED_DIR:-/opt/couchdb/seed_data}"
+DESIGN_DOCS_DIR="${DESIGN_DOCS_DIR:-/opt/couchdb/design_docs_build}"
 INIT_MARKER="/opt/couchdb/data/.seed_initialized"
+SCENARIO="${SCENARIO:-stage}"
+VIEWS_CONFIG="${VIEWS_CONFIG:-/opt/couchdb/views_config.yaml}"
+VIEWS_DIR="${VIEWS_DIR:-/opt/couchdb/StatusDB_views}"
 
 COUCHDB_URL="http://${COUCHDB_USER}:${COUCHDB_PASSWORD}@${COUCHDB_HOST}:${COUCHDB_PORT}"
 
@@ -105,6 +109,7 @@ load_seed_data() {
     done
 
     # Also load any top-level JSON files into a 'statusdb' database (legacy support)
+    echo "Processing top-level JSON files for 'statusdb'..."
     local has_toplevel_json=false
     for json_file in "$SEED_DIR"/*.json; do
         if [ -f "$json_file" ]; then
@@ -119,6 +124,55 @@ load_seed_data() {
     echo "Seed data loading complete!"
 }
 
+# Deploy design documents based on scenario
+create_design_docs() {
+    echo "Deploying design documents for scenario: ${SCENARIO}..."
+
+    if [ ! -f "$VIEWS_CONFIG" ]; then
+        echo "Views config not found: ${VIEWS_CONFIG}"
+        return 0
+    fi
+
+    if [ ! -d "$VIEWS_DIR" ]; then
+        echo "Views directory not found: ${VIEWS_DIR}"
+        return 0
+    fi
+
+    python3 /opt/couchdb/scripts/validate_views_config.py \
+        --build \
+        --scenario "$SCENARIO" \
+        --config "$VIEWS_CONFIG" \
+        --views-dir "$VIEWS_DIR" \
+        --design_docs_dir "$DESIGN_DOCS_DIR"
+
+    echo "Design documents deployment complete!"
+}
+
+deploy_design_docs() {
+    echo "Deploying design documents from ${DESIGN_DOCS_DIR}..."
+
+    if [ ! -d "$DESIGN_DOCS_DIR" ]; then
+        echo "Design docs directory not found: ${DESIGN_DOCS_DIR}"
+        return 0
+    fi
+
+    for db_dir in "$DESIGN_DOCS_DIR"/*/; do
+        if [ -d "$db_dir" ]; then
+            local db_name=$(basename "$db_dir")
+            echo "Processing design docs for database: ${db_name}"
+            create_database "$db_name"
+
+            for json_file in "$db_dir"/*.json; do
+                if [ -f "$json_file" ]; then
+                    load_document "$db_name" "$json_file"
+                fi
+            done
+        fi
+    done
+
+    echo "Design documents deployment complete!"
+}
+
 # Main execution
 main() {
     # Check if we've already initialized
@@ -129,7 +183,9 @@ main() {
 
     wait_for_couchdb
     create_system_databases
+    create_design_docs
     load_seed_data
+    deploy_design_docs
 
     # Create marker file to indicate initialization is complete
     touch "$INIT_MARKER"
