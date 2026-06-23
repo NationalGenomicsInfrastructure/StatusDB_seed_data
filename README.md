@@ -1,6 +1,7 @@
 # StatusDB NGI
 
 Holds views and test data to fire up a dev instance of StatusDB (CouchDB). This repository replaces the StatusDB_views repository which was kept private.
+The [databases](/DATABASES.md) documentation attempts to give an overview of each database and explain its purpose.
 
 # Views
 The first part of this repository is the code for the CouchDB views used for the NGI Stockholm StatusDB. The views are organised in the directory StatusDB_views and listed in the views_config.yaml.
@@ -26,6 +27,13 @@ StatusDB_views was kept private since it could contain some project details or o
 - @mariogiov
 
 Thank you!
+
+## Views directory structure
+The views are located in the directory `StatusDB_views` inside the repo and are subsequently organised into directories for databases and design documents.
+Each view consists of one or two files, one for the map function and one (optional) for the reduce function.
+They need to follow the naming pattern `<view_name>.map.js` and `<view_name>.reduce.js`.
+
+Each database, design document and view is listed in the config file `views_config.yaml`.
 
 ## Checking and updating the views_config.yaml
 To try to keep the views_config.yaml file up to date with the content of the repository, the script script/validate_views_config.py can be used:
@@ -74,7 +82,7 @@ Example document (`seed_data/example_project.json`):
 
 # Docker Image
 
-The docker image is most commonly used in the docker-compose setup for genomics status. In that case, the docker is built automatically as part of the setup. In case the docker image should be used standalone, it needs to be built using:
+The docker image is most commonly used in the docker-compose setup for genomics status, see [Using with Genomics Status](#using-with-genomics-status) In that case, the docker is built automatically as part of the setup. However, in case the docker image should be used standalone, it needs to be built using:
 
 ```
 cd Statusdb_NGI
@@ -97,7 +105,7 @@ After this, CouchDB will be available at:
 - Fauxton UI: <http://localhost:5984/_utils>
 - Credentials: `admin` / `admin`
 
-The seed data is automatically loaded on first startup along with the views marked as 
+The seed data is automatically loaded on first startup along with all views in the Statusdb_Views directory. It's prepared to use different scenarios where only a subset of views and data could be loaded, but currently there is only one `stage` scenario where all views and data is loaded.
 
 ### Persisting Data
 
@@ -112,16 +120,6 @@ docker run -d \
   ghcr.io/scilifelab/StatusDB_NGI:latest
 ```
 
-## Development Container (VS Code)
-
-The easiest way to develop seed data is using the VS Code Dev Container:
-
-1. Install [VS Code](https://code.visualstudio.com/) and the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-2. Open this repository in VS Code
-3. When prompted, click "Reopen in Container" (or run `Dev Containers: Reopen in Container` from the command palette)
-4. VS Code will build and start CouchDB automatically
-
-
 
 ## Building the Image Locally
 
@@ -130,12 +128,9 @@ docker build -t StatusDB_NGI .
 docker run -p 5984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=admin StatusDB_NGI
 ```
 
-## Adding New Seed Data
-
-1. Add JSON files to the `seed_data/` directory (or subdirectories for specific databases)
-2. Commit and push to `main` branch
-3. GitHub Actions will automatically build and publish a new image
+## Container registry
+There is a github workflow file written to facilitate automatic build and publishing of the seed data container, but it is not yet in use.
 
 ## Using with Genomics Status
 
-The [genomics-status](https://github.com/SciLifeLab/genomics-status) repository is configured to use this image in its dev container setup. When you open genomics-status in VS Code with Dev Containers, it will automatically pull this image and start CouchDB with the seed data.
+The [genomics-status](https://github.com/SciLifeLab/genomics-status) repository is configured to use this image in its docker compose setup. When starting docker compose, it will automatically build the image and populate it with the seed data, using the stage scenario.
