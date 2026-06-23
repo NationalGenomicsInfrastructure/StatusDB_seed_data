@@ -1,8 +1,0 @@
-{
-  "_id": "_design/sensor_id",
-  "views": {
-    "by_date": {
-      "map": "function(doc) { if (doc.date && doc.sensor_id) { emit(doc.date, doc.sensor_id); } }"
-    }
-  }
-}
