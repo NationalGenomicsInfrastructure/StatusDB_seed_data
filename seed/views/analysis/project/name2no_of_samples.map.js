@@ -1,1 +1,0 @@
-function(doc) {emit(doc.project_name, doc.no_of_samples)}
