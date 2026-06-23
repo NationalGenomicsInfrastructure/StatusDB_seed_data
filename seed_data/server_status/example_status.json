@@ -1,8 +1,12 @@
 {
-  "_id": "status_001",
-  "timestamp": "2025-12-05T09:00:00Z",
-  "name": "dev-nas-01",
-  "status": "ok",
-  "disk_usage": 50,
-  "disk_total": 100
+  "disk_size": "28T",
+  "space_used": "26T",
+  "space_available": "2T",
+  "used_percentage": "93%",
+  "available_percentage": "7%",
+  "mounted_on": "/data",
+  "filesystem": "/dev/md127",
+  "name": "promet.scilifelab.se",
+  "time": "2023-03-08T11:20:56.430212",
+  "server_type": "nas"
 }
