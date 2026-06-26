@@ -1,1 +1,0 @@
-function(doc) {emit(doc.project_name, doc.reference_genome)}
