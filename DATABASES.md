@@ -71,9 +71,13 @@ One document per run mode and sequencer. Not sure where this is used.
 
 ---
 
-## DEPRECATED `flowcells`
+## [NOT UPDATED] `flowcells`
 
-Illumina flowcells database used for pre HiSeq-X. Not updated after 2016.
+Illumina flowcells database used for pre HiSeq-X. Not updated after 2016. But still searchable in genstat and also likely possible to list in project lists.
+
+## `flowcell_status`
+
+A database to track the transfer status of all flowcells handled by the transfer script introduced with Project Helix. Updated every hour using a cronjob on ngi-preproc. Was previously called y_flowcells, because we tried to be funny.
 
 ---
 
@@ -163,6 +167,10 @@ Never made it into use, was supposed to keep track of sample requirements for di
 
 ---
 
+## [DEPRECATED] `samples`
+
+Seems to track and document QC runs. Seems to have stopped udpating around 2016.
+
 ## `sensorpush`
 
 Uploades time series data for our freezers and fridges that are connected with a sensorpush sensor. One document per sensor and 24h. Data is uploaded by a script running on ngi_internal polling the sensorpush API. We suspect that the API isn't great and sometimes misses out data, but it could also be sensors that drop out.
@@ -207,9 +215,9 @@ The Illumina flowcells database, updated by TACA and visualised on Genomics Stat
 
 ---
 
-## `y_flowcells`
+## [DEPRECATED] `y_flowcells`
 
-A database to track the transfer status of all flowcells handled by the transfer script introduced with Project Helix. Updated every hour using a cronjob on ngi-preproc. The name was chosen because it comes after x_flowcells.
+The name was chosen because it comes after x_flowcells. Was renamed to flowcell_status so that we understand what it is about. 
 
 ---
 
