@@ -1,8 +1,0 @@
-{
-  "_id": "_design/current",
-  "views": {
-    "assignments": {
-      "map": "function(doc) { if (doc.project_id && doc.assigned_to) { emit(doc.project_id, doc.assigned_to); } }"
-    }
-  }
-}
