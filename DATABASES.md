@@ -16,12 +16,6 @@ Stores user agreements created in Genomics Status, connected to the cost calcula
 
 ---
 
-## DEPRECATED: `analysis`
-
-Summary statistics from various analysis, likely updated from `Piper` or similar since its not updated anymore. Likely stopped being updated around 2020 or similar.
-
----
-
 ## `application_categories`
 
 Listing our application categories and abrevation, with one document per application. Used by the statistics api of genstat which in turn feeds the dashboard.
@@ -68,12 +62,6 @@ Storing the output of `crontab -l` for different users and servers, updated by T
 ## `element_runs`
 
 Flowcells database for the Element Bioisciences sequencing instrument. Created by TACA and displayed on Genomics Status.
-
----
-
-## DEPRECATED `expected_yields`
-
-One document per run mode and sequencer. Not sure where this is used.
 
 ---
 
@@ -173,10 +161,6 @@ Never made it into use, was supposed to keep track of sample requirements for di
 
 ---
 
-## [DEPRECATED] `samples`
-
-Seems to track and document QC runs. Seems to have stopped udpating around 2016.
-
 ## `sensorpush`
 
 Uploades time series data for our freezers and fridges that are connected with a sensorpush sensor. One document per sensor and 24h. Data is uploaded by a script running on ngi_internal polling the sensorpush API. We suspect that the API isn't great and sometimes misses out data, but it could also be sensors that drop out.
@@ -194,12 +178,6 @@ Tracking storage of server file systems, used to display status on Genomics Stat
 ## `suggestion_box`
 
 Keeps track of which items have been added to the suggestion box. Keeps a link to the Jira item and whether its been archived or not.
-
----
-
-## [DEPRECATED] `taca_flowcells`
-
-Abandoned project for taca to uploade flowcells I think. Only one document and uploaded 2015.
 
 ---
 
