@@ -28,6 +28,12 @@ Listing our application categories and abrevation, with one document per applica
 
 ---
 
+## `archiving_status`
+
+A database to track the archiving status of all flowcells handled by the encryption and archiving scripts introduced with Project Helix. Updated by dataflow_encrypt until the status is set to `encrypted`, and then by dataflow_archive which is run nightly.
+
+---
+
 ## `bioinfo_analysis`
 
 Listing status flags for bioinfo tab on Genomics Status. One document per sample-flowcell-lane combination, which gets problematic when setting a status on flowcell level when there is a lot of samples on many lanes.
